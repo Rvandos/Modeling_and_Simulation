@@ -14,7 +14,7 @@ from utils import bootstrap, create_logistic_population
 
 
 
-#Set required global variables
+#Set and initialize required global variables
 #-----------------------------------------------------------------------------
 N_OBS = 2000
 N_SIM = 1000
