@@ -28,7 +28,7 @@ tf.get_logger().setLevel('ERROR')
 #Set and initialize required global variables
 #-----------------------------------------------------------------------------
 N_OBS = 3000
-N_SIM = 5
+N_SIM = 20
 
 logreg_acc_list = []
 logreg_f1_list = []
@@ -101,7 +101,6 @@ for b in tqdm(range(N_SIM)):
     logreg_f1_list.append(logreg_f1)
     logreg_acc_list.append(logreg_acc)
 
-    #TO DO: ADD EARLY STOPPING CRITERIA AND VALIDATION SET OR TAKE THE BEST VERSION?
     #------------------------------------------------------
     #Neural Network
     #Model specification
@@ -125,6 +124,9 @@ for b in tqdm(range(N_SIM)):
     nn_f1_list.append(nn_f1)
 
 
+
+
+
 #Store the results in a seperate folder
 storage_loc = os.path.join(os.getcwd(),'Modeling_and_Simulation', 'Results', 'bootstrap')
 
@@ -137,7 +139,5 @@ with open(storage_loc + '/neural_network_accuracy.pkl', 'wb') as f:
     pickle.dump(nn_acc_list, f)
 with open(storage_loc + '/neural_network_f1.pkl', 'wb') as f:
     pickle.dump(nn_f1_list, f)
-
-
 
 print('The execution has finished! See the folder "Results" for the simulation results!')
