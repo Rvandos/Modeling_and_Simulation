@@ -37,7 +37,6 @@ nn_f1_list = []
 REMOVE_FEATURES = ['Age Group']
 POPULATION_LOGISTIC_PARAMETERS = {}
 LOGISTIC_PARAMETERS = {'random_state': 2024272}
-NEURAL_NETWORK_PARAMETERS = {}
 TEST_SIZE = 0.3
 NN_VALIDATION_SPLIT = 0.1
 
@@ -72,6 +71,7 @@ n_features = len(X[0])-1
 
 #Create a new population using a logistic regression:
 X_new = create_logistic_population(X, POPULATION_LOGISTIC_PARAMETERS)
+
 
 
 #Perform the simulation on the newly generated population:

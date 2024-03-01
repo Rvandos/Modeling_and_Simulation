@@ -1,1 +1,1 @@
-from .simulation_utils import bootstrap, create_logistic_population
+from .simulation_utils import bootstrap, create_logistic_population, create_nn_population

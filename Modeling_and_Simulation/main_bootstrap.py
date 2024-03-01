@@ -1,11 +1,9 @@
 """This is the main script that performs the execution of the basic bootstrap simulation!
 """
-
 #Surpress deprecation warnings!
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
 
 import numpy as np
 import pandas as pd
@@ -15,10 +13,10 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score, accuracy_score
-from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
@@ -37,7 +35,6 @@ nn_f1_list = []
 
 REMOVE_FEATURES = ['Age Group']
 LOGISTIC_PARAMETERS = {'random_state': 2024272}
-NEURAL_NETWORK_PARAMETERS = {}
 TEST_SIZE = 0.3
 NN_VALIDATION_SPLIT = 0.1
 
