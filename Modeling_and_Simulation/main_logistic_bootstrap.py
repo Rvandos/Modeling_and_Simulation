@@ -23,6 +23,7 @@ logreg_f1_list = []
 nn_acc_list = []
 nn_f1_list = []
 
+REMOVE_FEATURES = ['Age Group']
 POPULATION_LOGISTIC_PARAMETERS = {}
 LOGISTIC_PARAMETERS = {'random_state': 2024272}
 NEURAL_NETWORK_PARAMETERS = {}
@@ -39,9 +40,16 @@ np.random.seed(2024272)
 #-----------------------------------------------------------------------------
 data_path = os.path.join(os.getcwd(),'Modeling_and_Simulation', 'Data', 'Customer_Churn.csv')
 df = pd.read_csv(data_path)
-column_names = df.columns
+
+#Remove unwanted features:
+if len(REMOVE_FEATURES) != 0:
+    df = df.drop(REMOVE_FEATURES, axis=1)
+
+#Make the status variable binary:
+df['Status'] = df['Status'].replace(2,0)
 
 #Set the Y variable (Churn) to be the first colum
+column_names = df.columns
 col_order = ['Churn'] + [col for col in column_names if col != 'Churn']
 df = df[col_order]
 X = df.to_numpy()
