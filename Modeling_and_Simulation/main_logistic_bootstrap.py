@@ -27,7 +27,7 @@ tf.get_logger().setLevel('ERROR')
 #Set and initialize required global variables
 #-----------------------------------------------------------------------------
 N_OBS = 3000
-N_SIM = 20
+N_SIM = 1000
 
 logreg_acc_list = []
 logreg_f1_list = []
